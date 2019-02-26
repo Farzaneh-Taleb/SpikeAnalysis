@@ -107,26 +107,3 @@ lineoffsets1 = np.arange(0,3500,1)
 
 plt.show()
 
-
-
-
-# hist = np.vstack((neurons_array[0] , neurons_array[1] , neurons_array[2]))
-# print("h" , hist.shape)
-
-
-
-def getCondition(cond_number):
-    if cond_number > 8:
-        angle = cond_number - 8
-    else:
-        angle  = cond_number
-    if cond_number > 8:
-        radial = 2
-    else:
-        radial =1
-    return angle , radial
-
-
-def f(firing_rate , simulation_time , number_of_trials,dt):
-    n_bins = simulation_time / dt
-

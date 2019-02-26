@@ -32,7 +32,7 @@ class Utility_Functions:
         return self.neurons_array
 
     def get_neuron(self,i):
-        return  self.neurons_array[0]
+        return  self.neurons_array[i]
 
     def getTrialsSummationByCondition(self  , neuron_number , condition):
         s = self.neurons_array[neuron_number,(self.conNU_data==condition).squeeze() , :]
@@ -47,5 +47,13 @@ class Utility_Functions:
         non_zero_indecis  = np.nonzero(trials)
         return non_zero_indecis[0] , non_zero_indecis[1]
 
-
-    # def getSpikesIndecis(self):
+    def get_condition(self , cond_number):
+        if cond_number > 8:
+            angle = cond_number - 8
+        else:
+            angle = cond_number
+        if cond_number > 8:
+            radial = 2
+        else:
+            radial = 1
+        return angle, radial
