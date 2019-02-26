@@ -23,12 +23,16 @@ class Utility_Functions:
         self.times = 3500
         self.number_of_neurons=25
         self.conditions = 16
+        self.number_of_all_trials = 928
         self.get_nurons_array()
 
     def get_nurons_array(self):
         for index, neuron in np.ndenumerate(self.neurons):
             self.neurons_array[index] = neuron
         return self.neurons_array
+
+    def get_neuron(self,i):
+        return  self.neurons_array[0]
 
     def getTrialsSummationByCondition(self  , neuron_number , condition):
         s = self.neurons_array[neuron_number,(self.conNU_data==condition).squeeze() , :]
