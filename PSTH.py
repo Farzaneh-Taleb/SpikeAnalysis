@@ -2,7 +2,7 @@
 """
 @author Farzaneh.Tlb
 1/30/2019 1:07 AM
-Implementation of PSTH (Fill this line)
+Implementation of PSTH
 """
 from scipy.io import loadmat
 import numpy as np
@@ -23,15 +23,6 @@ for index, neuron in np.ndenumerate(neurons):
     neurons_array[index] = neuron
 
 def getTrialByCondition(neuron_number , condition):
-    # condition_indecis =np.where(conNU_data[:,0] == condition)
-    # print("c" , np.asarray(condition_indecis).shape)
-    # ind =  np.where(neurons_array[neuron_number , condition_indecis  , : ] ==1)
-    # print ("ind" ,  np.asarray(ind))
-    # print ("indShape" ,  np.asarray(ind).shape)
-    # selected_neuron = neurons_array[np.where(neurons_array[neuron_number , np.asarray(condition_indecis)  , : ] ==1)]
-    # unique, counts = np.unique(ind, return_counts=True)
-    print("x" , conNU_data==condition)
-
     s = neurons_array[neuron_number,(conNU_data==condition).squeeze() , :]
     data = np.sum(s , axis=0 )
     print(s.shape)

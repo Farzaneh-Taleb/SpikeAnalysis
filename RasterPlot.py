@@ -96,16 +96,7 @@ for trial in selected_trials:
     ready_to_plot_indices.append(np.nonzero(trial)[0])
 
 numpy_fillna(ready_to_plot_indices)
-   # ready_to_plot_indices = tuple(np.nonzero(trial),ready_to_plot_indices)
-   # x = np.nonzero(trial)
-   # count = np.count_nonzero(trial)
-   # if count>max:
-   #     max = count
-   #
 
-        # i = i + 0.1
-        # j = j + 0.05
-        # k = k - 0.1
 
 # print(ready_to_plot_indices.size)
 plt.eventplot(ready_to_plot_indices , orientation='horizontal' , linelengths=0.2)
