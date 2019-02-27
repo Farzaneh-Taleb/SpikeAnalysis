@@ -57,3 +57,6 @@ class Utility_Functions:
         else:
             radial = 1
         return angle, radial
+
+    def compute_summation_over_time(self, trials):
+        return  np.sum(trials , axis=1)
