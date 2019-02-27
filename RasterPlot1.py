@@ -10,15 +10,6 @@ Implementation of RasterPlot(Fill this line)
 ut = utility.Utility_Functions()
 trials = 20
 
-plt.axhline(y=20)
-plt.axhline(y=40)
-plt.axhline(y=60)
-plt.axhline(y=80)
-plt.axhline(y=100)
-plt.axhline(y=120)
-plt.axhline(y=140)
-plt.axhline(y=160)
-# plt.axhline(y=120)
 
 array_color = ['green' , 'red' , 'blue' , 'yellow','black' , 'orange' , 'gray' , 'red']
 for n in range(ut.number_of_neurons):
@@ -30,9 +21,22 @@ for n in range(ut.number_of_neurons):
         for trial in selected_trials:
             spikes = np.nonzero(trial)
             print(spikes[0].size)
-            plt.scatter(spikes,np.ones(spikes[0].size)*10*(c+1) + trial_index , marker='.',edgecolors=array_color[c]  )
+            plt.scatter(spikes,np.ones(spikes[0].size)*10*(c+1) + trial_index/2 , marker='.',edgecolors=array_color[c]  , s=1 )
             x = 10*(c+1) + trial_index
             trial_index +=1
             print("x" ,x)
+
+    plt.axhline(y=10 )
+    plt.axhline(y=20)
+    plt.axhline(y=30)
+    plt.axhline(y=40)
+    plt.axhline(y=50)
+    plt.axhline(y=60)
+    plt.axhline(y=70)
+    plt.axhline(y=80)
+    plt.legend()
+    y_axis = np.arange(10, 90, 10)
+
+    plt.yticks(y_axis, ['condition 1' ,'condition 2','condition 3','condition 4','condition 5','condition 6','condition 7','condition 8'])
 
     plt.show()
