@@ -58,5 +58,10 @@ class Utility_Functions:
             radial = 1
         return angle, radial
 
+
     def compute_summation_over_time(self, trials):
         return  np.sum(trials , axis=1)
+
+    def get_radial_over_trials(self , trials):
+        radial_over_trials = np.where(trials > 8, 2, 1)
+        return radial_over_trials
