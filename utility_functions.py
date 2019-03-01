@@ -1,7 +1,7 @@
 """
 @author Farzaneh.Tlb
 2/24/19 7:09 PM
-Implementation of .... (Fill this line)
+Implementation of Some Useful Functions(Fill this line)
 """
 from scipy.io import loadmat
 import numpy as np
