@@ -49,7 +49,7 @@ for train, test in kf.split(all_X ,all_Y):
     X_train, X_test, y_train, y_test = all_X[ train], all_X[ test], all_Y[train], all_Y[test]
     probas_ = clf.fit(X_train, y_train).predict_proba(X_test)
     # Compute ROC curve and area the curve
-    fpr, tpr, thresholds = roc_curve(y_test, probas_[:, 1])
+    fpr, tpr, thresholds = roc_curve(y_test, probas_[:, 1] , pos_label=2)
     tprs.append(interp(mean_fpr, fpr, tpr))
     tprs[-1][0] = 0.0
     roc_auc = auc(fpr, tpr)
