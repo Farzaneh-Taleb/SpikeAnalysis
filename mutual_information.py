@@ -20,9 +20,12 @@ def calculate_MI(start_time, end_time):
     MI = np.zeros(shape=[25, ])
     for n in range(ut.number_of_neurons):
         for c in range(ut.conditions - 8):
-            trials = ut.get_trial_by_condition(n, c + 1)
-            number_of_trials_per_c = trials.shape[0]
-            data_to_histogram = ut.get_indecis_of_spikes(trials[:, start_time:end_time])
+            trials1 = ut.get_trial_by_condition(n, c + 1)
+            trials2 = ut.get_trial_by_condition(n,c+9)
+            all_trials = np.concatenate((trials1,trials2))
+            print("tr" , all_trials.shape)
+            number_of_trials_per_c = all_trials.shape[0]
+            data_to_histogram = ut.get_indecis_of_spikes(all_trials[:, start_time:end_time])
             hist, bins = np.histogram(data_to_histogram, bins='fd', density=True)
             print(np.sum(hist[0]))
             ent_r_s[c] = -(hist[0] * np.log(np.abs(hist[0]))).sum()
@@ -44,7 +47,7 @@ def calculate_MI(start_time, end_time):
 MI1 = calculate_MI(1000, 1501)
 MI2 = calculate_MI(2700, 3201)
 
-fig, axs = plt.subplots(1, 3)
+fig, axs = plt.subplots(1, 3,figsize=(20, 10))
 
 axs[0].hist(MI1, bins='fd' ,alpha=0.5  )
 axs[0].hist(MI2, bins='fd' , alpha=0.5 )
