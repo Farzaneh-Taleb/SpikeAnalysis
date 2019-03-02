@@ -13,29 +13,21 @@ trials = 20
 
 array_color = ['green', 'red', 'blue', 'yellow', 'black', 'orange', 'gray', 'red']
 for n in range(ut.number_of_neurons):
-    for c in range(ut.conditions - 8):
+    fig, axs = plt.subplots(1, 2, sharex='col', sharey='row')
+    for c in range(ut.conditions ):
         trials = ut.get_trial_by_condition(n, c + 1)
         selected_trials = trials[0:20, :]
-        # for index, trial in np.ndenumerate(selected_trials):
         trial_index = 1
         for trial in selected_trials:
             spikes = np.nonzero(trial)
-            print(spikes[0].size)
-            plt.scatter(spikes, np.ones(spikes[0].size) * 10 * (c + 1) + trial_index / 2, marker='.',
-                        edgecolors=array_color[c], s=1)
-            x = 10 * (c + 1) + trial_index
+            axs[c//8].scatter(spikes, np.ones(spikes[0].size) * 10 * ((c%8) + 1) + trial_index / 2, marker='.',  edgecolors=array_color[c%8], s=1  )
+            x = 10 * ((c%8) + 1) + trial_index
             trial_index += 1
-            print("x", x)
+            # axs[c//8].ax
+    for c in range(2):
+        for ya in range(1,9):
+            axs[c].axhline(10*ya)
 
-    plt.axhline(y=10)
-    plt.axhline(y=20)
-    plt.axhline(y=30)
-    plt.axhline(y=40)
-    plt.axhline(y=50)
-    plt.axhline(y=60)
-    plt.axhline(y=70)
-    plt.axhline(y=80)
-    plt.legend()
     y_axis = np.arange(10, 90, 10)
 
     plt.yticks(y_axis, ['condition 1', 'condition 2', 'condition 3', 'condition 4',
