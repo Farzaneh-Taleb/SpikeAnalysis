@@ -13,7 +13,7 @@ trials = 20
 
 array_color = ['green', 'red', 'blue', 'yellow', 'black', 'orange', 'gray', 'red']
 for n in range(ut.number_of_neurons):
-    fig, axs = plt.subplots(1, 2, sharex='col', sharey='row')
+    fig, axs = plt.subplots(1, 2, sharex='col', sharey='row',figsize=(20, 10))
     for c in range(ut.conditions ):
         trials = ut.get_trial_by_condition(n, c + 1)
         selected_trials = trials[0:20, :]
@@ -28,6 +28,7 @@ for n in range(ut.number_of_neurons):
         for ya in range(1,9):
             axs[c].axhline(10*ya)
 
+    plt.xlabel("neuron" + str(n))
     y_axis = np.arange(10, 90, 10)
 
     plt.yticks(y_axis, ['condition 1', 'condition 2', 'condition 3', 'condition 4',
