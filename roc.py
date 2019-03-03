@@ -35,9 +35,9 @@ clf = svm.SVC(kernel='linear', decision_function_shape='ovr',probability=True)
 tprs = []
 aucs = []
 mean_fpr = np.linspace(0, 1, 100)
-i = 0
 
 def calculate_ROC(all_X):
+    i = 0
     for train, test in kf.split(all_X ,all_Y):
         X_train, X_test, y_train, y_test = all_X[ train], all_X[ test], all_Y[train], all_Y[test]
         probas_ = clf.fit(X_train, y_train).predict_proba(X_test)
