@@ -70,11 +70,14 @@ def calculate_ROC(all_X):
     #                  label=r'$\pm$ 1 std. dev.')
 
 calculate_ROC(all_X1)
+plt.xlim([-0.05, 1.05])
+plt.ylim([-0.05, 1.05])
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('Receiver operating characteristic example')
+plt.legend(loc="lower right")
 plt.show()
 calculate_ROC(all_X2)
-plt.show()
-
-
 plt.xlim([-0.05, 1.05])
 plt.ylim([-0.05, 1.05])
 plt.xlabel('False Positive Rate')
