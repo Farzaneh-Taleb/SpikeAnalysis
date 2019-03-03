@@ -51,10 +51,6 @@ std_err = sem(scores)
 CI1 = mean + 1.96 * std_err
 CI2 = mean - 1.96 * std_err
 print(CI1  , CI2 , 1.96*std_err)
-# up = scores.mean() + 1.96 * np.sqrt( (std_err * (1 - std_err)) / n)
-# low = scores.mean() - 1.96 * np.sqrt( (std_err * (1 - std_err)) / n)
-# print("up" , up)
-# print("low" , low)
 
 
 
