@@ -18,6 +18,7 @@ for n in range(ut.number_of_neurons):
         trials = ut.get_trial_by_condition(n, c + 1)
         selected_trials = trials[0:20, :]
         trial_index = 1
+        axs[c//8].set_xlabel("radius" + str(c//8))
         for trial in selected_trials:
             spikes = np.nonzero(trial)
             axs[c//8].scatter(spikes, np.ones(spikes[0].size) * 10 * ((c%8) + 1) + trial_index / 2, marker='.',  edgecolors=array_color[c%8], s=1  )
@@ -28,10 +29,10 @@ for n in range(ut.number_of_neurons):
         for ya in range(1,9):
             axs[c].axhline(10*ya)
 
-    plt.xlabel("neuron" + str(n))
+    fig.suptitle("neuron" + str(n))
     y_axis = np.arange(10, 90, 10)
 
-    plt.yticks(y_axis, ['condition 1', 'condition 2', 'condition 3', 'condition 4',
-                        'condition 5', 'condition 6', 'condition 7', 'condition 8'])
+    plt.yticks(y_axis, ['angle 1', 'angle 2', 'angle 3', 'angle 4',
+                        'angle 5', 'angle 6', 'angle 7', 'angle 8'])
 
     plt.show()

@@ -11,7 +11,7 @@ Implementation of another betttter PSTH [hip hip hoOoOoOoOray]
 """
 ut = utility.Utility_Functions()
 
-for n in range(4,ut.number_of_neurons):
+for n in range(ut.number_of_neurons):
     fig, axs = plt.subplots(1, 2, sharex='col', sharey='row',figsize=(20, 10)  )
     # fig, axs = plt.subplots(1, 2  )
 
@@ -27,7 +27,7 @@ for n in range(4,ut.number_of_neurons):
         temp = np.add.reduceat(selected_trial, np.arange(0, selected_trial.shape[1], s) , axis=1)
         print("temp" , temp.shape)
         temp = np.sum(temp,axis=0) /s
-        print(temp)
+        print(temp.shape)
         # plt.xlim(0, 3500)
         # plt.ylim(0, 30)
         # plt.tick_params(

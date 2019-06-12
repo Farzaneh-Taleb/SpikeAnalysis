@@ -17,6 +17,7 @@ class Utility_Functions:
         my_path = os.path.abspath(os.path.dirname(__file__))
         path = os.path.join(my_path, "../datas/Nu.mat")
         Nu = loadmat(path)
+        # print("nnnnn" , Nu)
         path = os.path.join(my_path, "../datas/conNU.mat")
         conNU = loadmat(path)
 
