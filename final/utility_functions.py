@@ -23,11 +23,14 @@ class Utility_Functions:
 
         self.Nu_data = Nu['nu']  # (25,928,3500)
         self.conNU_data = conNU['condNU']  # (928, 1)
+        path = os.path.join(my_path, "../datas/condLFP.mat")
 
-        # condLFP = loadmat('datas/condLFP.mat')
-        # LFP1 = loadmat('datas/LFP1.mat')
-        # self.condLFP_data = condLFP['Cond'] #(963,1)
-        # self.LFP_data = LFP1['LFP'] #(963, 8000)
+        condLFP = loadmat(path)
+        path = os.path.join(my_path, "../datas/LFP1.mat")
+
+        LFP1 = loadmat(path)
+        self.condLFP_data = condLFP['Cond'] #(963,1)
+        self.LFP_data = LFP1['LFP'] #(963, 8000)
         self.neurons = self.Nu_data[0]
         self.neurons_array = np.empty(shape=[25, 928, 3500])
         self.times = 3500

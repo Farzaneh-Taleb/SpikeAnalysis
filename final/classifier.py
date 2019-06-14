@@ -22,12 +22,13 @@ all_X  = np.zeros(shape=[928 , 25])
 all_Y = ut.conNU_data[:,0]
 
 all_Y = np.where(all_Y <= 8 , all_Y, all_Y-8)
+# all_Y = np.where(all_Y <= 8 , all_Y, all_Y-8)
 for n  in range(ut.number_of_neurons):
     neuron = ut.get_neuron(n)
     all_X[:,n] = np.transpose(ut.compute_summation_over_time(neuron))
 
-
-
+#
+#
 # kf = KFold(n_splits=4)
 # for train , test  in kf.split(all_X ,all_Y):
 #     X_train, X_test, y_train, y_test = all_X[ train], all_X[ test], all_Y[train], all_Y[test]
@@ -38,10 +39,10 @@ for n  in range(ut.number_of_neurons):
 
 
 clf = svm.SVC(kernel='linear', decision_function_shape='ovr')
-scores = cross_val_score(clf, all_X, all_Y, cv=10)
+scores = cross_val_score(clf, all_X, all_Y, cv=5)
 print(scores)
 print("Accuracy:"  , scores.mean(),"(+/-" , sem(scores) * 1.96 , ")")
-print(scores.mean() +  sem(scores) * 1.96 , scores.mean() -  sem(scores) * 1.96)
+print(scores.mean() -  sem(scores) * 1.96 , scores.mean() +  sem(scores) * 1.96)
 
 #
 # n = ut.number_of_all_trials
